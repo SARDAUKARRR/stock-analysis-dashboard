@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Stock Analysis Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-grid">
+        
+        <main id="main-content" class="main-content">
+            <header class="dashboard-header">
+                <div class="ticker-input-container">
+                    <input type="text" id="ticker-input" value="AAPL" placeholder="Enter Ticker...">
+                    <button id="submit-btn">Load Data</button>
+                </div>
+                <div class="company-title">
+                    <img id="company-logo" src="" alt="Logo" class="company-logo">
+                    <h1 id="company-name">Company Name</h1>
+                    <span id="company-ticker" class="company-ticker">TICKER</span>
+                </div>
+            </header>
+
+            <section class="metrics-grid" id="metrics-container">
+                </section>
+
+            <section class="card chart-card">
+                <h2>Price & Volume</h2>
+                <div id="price-chart-container"></div>
+            </section>
+            
+            <section class="indicator-grid">
+                <div class="card chart-card">
+                    <h2>RSI (Relative Strength Index)</h2>
+                    <div id="rsi-chart-container"></div>
+                </div>
+                <div class="card chart-card">
+                    <h2>MACD (Moving Average Convergence Divergence)</h2>
+                    <div id="macd-chart-container"></div>
+                </div>
+            </section>
+
+            <section class="info-grid">
+                <div class="card">
+                    <h3>Company Profile</h3>
+                    <div id="profile-container"></div>
+                </div>
+                <div class="card">
+                    <h3>Recent News</h3>
+                    <div id="news-container" class="news-container"></div>
+                </div>
+            </section>
+
+        </main>
+
+        <aside class="sidebar">
+            <div class="api-key-module card">
+                <h3>API Configuration</h3>
+                <p>Enter your free API key from Finnhub to activate the dashboard.</p>
+                <label for="api-key-input">Finnhub API Key:</label>
+                <input type="password" id="api-key-input" placeholder="Enter key here...">
+                <button id="save-api-key-btn">Save Key</button>
+            </div>
+            <div class="status-module card">
+                <h3>Status Log</h3>
+                <div id="status-log" class="status-log"></div>
+            </div>
+             <footer>
+                <p>Data provided by <a href="https://finnhub.io/" target="_blank">Finnhub.io</a>.</p>
+             </footer>
+        </aside>
+
+    </div>
+
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

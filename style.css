@@ -1,0 +1,125 @@
+:root {
+    --bg-color: #131722;
+    --card-bg: #1e222d;
+    --sidebar-bg: #131722;
+    --text-primary: #d1d4dc;
+    --text-secondary: #8c98a9;
+    --border-color: #2a2e39;
+    --green: #26a69a;
+    --red: #ef5350;
+    --blue: #2962ff;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    margin: 0;
+    font-size: 14px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    min-height: 100vh;
+}
+
+.main-content {
+    padding: 20px;
+    position: relative;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.main-content.locked {
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.sidebar {
+    background-color: var(--sidebar-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--border-color);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.company-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.company-logo { height: 40px; width: 40px; border-radius: 50%; background-color: #333; }
+h1 { font-size: 2rem; margin: 0; }
+.company-ticker { font-size: 1rem; color: var(--text-secondary); }
+
+.ticker-input-container { display: flex; gap: 10px; }
+#ticker-input {
+    font-size: 1rem; padding: 10px; border-radius: 5px;
+    border: 1px solid var(--border-color); background-color: #2a2e39;
+    color: var(--text-primary); width: 150px;
+}
+
+#submit-btn, #save-api-key-btn {
+    font-size: 1rem; padding: 10px 20px; border-radius: 5px;
+    border: none; background-color: var(--blue); color: white;
+    cursor: pointer; transition: background-color 0.2s;
+}
+#submit-btn:hover, #save-api-key-btn:hover { background-color: #1952d6; }
+#submit-btn:disabled, #save-api-key-btn:disabled { background-color: #555; cursor: not-allowed; }
+
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
+.metric-card { padding: 15px; text-align: center; }
+.metric-card .label { font-size: 0.8rem; color: var(--text-secondary); display: block; margin-bottom: 8px; text-transform: uppercase; }
+.metric-card .value { font-size: 1.5rem; font-weight: 500; }
+
+.chart-card h2 { margin-top: 0; font-size: 1rem; color: var(--text-secondary); font-weight: 500; }
+#price-chart-container { width: 100%; height: 400px; }
+#rsi-chart-container, #macd-chart-container { width: 100%; height: 200px; }
+
+.indicator-grid, .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+#profile-container p { margin: 0 0 10px 0; }
+#profile-container span { color: var(--text-secondary); margin-right: 8px; }
+
+.news-container { max-height: 300px; overflow-y: auto; }
+.news-item { border-bottom: 1px solid var(--border-color); padding: 10px 0; }
+.news-item:last-child { border-bottom: none; }
+.news-item a { color: var(--text-primary); text-decoration: none; font-weight: 500; }
+.news-item a:hover { text-decoration: underline; }
+.news-item p { font-size: 0.8rem; color: var(--text-secondary); margin: 5px 0 0 0; }
+
+.api-key-module h3, .status-module h3 { margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-weight: 500;}
+.api-key-module label { display: block; margin: 15px 0 5px 0; font-size: 0.9rem; color: var(--text-secondary); }
+#api-key-input { width: calc(100% - 22px); padding: 10px; font-size: 1rem; border: 1px solid var(--border-color); border-radius: 5px; background-color: var(--bg-color); color: var(--text-primary); }
+#api-key-input::placeholder { color: #555; }
+.api-key-module button { width: 100%; margin-top: 15px; }
+
+.status-log {
+    height: 180px; background-color: #000;
+    border-radius: 5px; padding: 10px;
+    overflow-y: auto; font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem; line-height: 1.4;
+}
+.status-log .log-entry { margin-bottom: 5px; word-break: break-all; }
+.status-log .log-entry.error { color: var(--red); }
+.status-log .log-entry.success { color: var(--green); }
+.status-log .log-entry.info { color: var(--text-secondary); }
+
+footer { text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: auto; }
+footer a { color: var(--blue); text-decoration: none; }
